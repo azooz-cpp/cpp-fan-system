@@ -1,50 +1,42 @@
-# cpp-fan-system:
-
-Smart Fan Control System
-
+Fan Control System
 Options:
-1- Normal Mode
-2- Medium Mode
-3- Fast Mode
-4- Very Fast Mode
-0- Fan Off
 
-Implementation Steps:
+    Normal Mode
+    Medium Mode
+    Fast Mode
+    Very Fast Mode
+    Turn Off Fan
 
-1- Variables:
+Application Steps:
+1. Variables:
 
-- Two variables of type int:(Fan_speed, Result) were created and initialized with a value of 0.
+    Two int variables were created: Fan_speed and Result, both initialized to 0.
 
-2- Input:
+2. Input:
 
-- Use cin to receive the input value.
+    Used cin to receive the user's input value.
 
-3- Output:
+3. Output:
 
-- Use cout to display the options message to the user.
+    Used cout to display the menu options to the user.
 
-4- Input Type Verification or Input Protection:
+4. Input Validation & Protection:
 
-- Use while(cin.fail()) to verify that the input is a number and not a character.
+    Used while(cin.fail()) to verify that the input is a number and not a character.
+    The Issue: If the user enters a character, it gets stuck in the memory buffer, causing an infinite loop. (I always try to remember this concept because I tend to forget it or feel I haven't fully grasped it yet).
+    The Solution: Used cin.clear() to reset the error state, and cin.ignore() to remove the stuck character from the memory buffer.
 
-If the user enters a character, it gets stuck in memory and causes an infinite loop (I always try to remember this because I often forget it or don't feel I understand it well).
+5. Conditions (Negative Value Check):
 
-Solution: Use `cin.clear()` to fix the error, and `cin.ignore()` to clear the stuck character from memory.
+    Used while(Fan_speed < 0) to prevent negative numbers.
 
-5- Conditions:
+    Observation & Debugging:
+    While testing the code, I noticed a strange bug initially: entering a negative number correctly printed an error and asked for input again. However, when I entered a character at that stage, it triggered an infinite loop!
+    At first, I didn't know the cause. But after experimentation, I hypothesized that the character was stuck in the memory buffer. Therefore, I applied cin.clear() and cin.ignore() to reset cin and allow it to accept new valid input.
 
-Checking for Negative Values:
+6. Option Processing:
 
-Use `while(Fan_speed < 0)` to block negative numbers.
-
-When I was testing the code, I noticed a strange error at the beginning. When I entered a negative value, it printed an error and asked me to enter a value again. However, when I entered a character, it caused an infinite loop!
-
-I didn't know the reason at first, but I tried and thought it might be because the character was stuck in memory. So I tried using `cin.clear` and `cin.ignore` to prepare `cin` to receive a new value.
-
-6- Handling Options:
-
-Use `switch` to check the entered number.
-
-Each case calls a function that returns a specific value. Initially, I used a void function, but I decided to use a function that returns a specific value for practice.
-
-- The final number and message are printed inside the main box.
+    Used a switch statement to check the entered number.
+    Each case calls a function that returns a specific value.
+    Note: Initially, I used void functions, but I decided to switch to functions that return a value specifically to practice and master this concept.
+    The final number and message are printed inside the main function.
