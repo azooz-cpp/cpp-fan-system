@@ -1,11 +1,11 @@
-Fan Control System
+Smart Fan Control System
 Options:
 
-    Normal Mode
-    Medium Mode
-    Fast Mode
-    Very Fast Mode
-    Turn Off Fan
+    1-Normal Mode
+    2-Medium Mode
+    3-Fast Mode
+    4-Very Fast Mode
+    0-Turn Off Fan
 
 Application Steps:
 1. Variables:
@@ -38,5 +38,6 @@ Application Steps:
 
     Used a switch statement to check the entered number.
     Each case calls a function that returns a specific value.
+
     Note: Initially, I used void functions, but I decided to switch to functions that return a value specifically to practice and master this concept.
     The final number and message are printed inside the main function.
